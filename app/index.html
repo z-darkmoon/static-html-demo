@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="referrer" content="never"/>
+    <title>2018世界杯</title>
+    <!-- build:css -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nanoscroller.css">
+    <!-- endbuild -->
+
+    <script src="lib/jquery-1.11.0.js"></script>
+    <script src="lib/jquery-cookie.js"></script>
+    <script src="lib/jquery.nanoscroller.min.js"></script>
+    <script src="lib/gweb-0.01-min.js"></script>
+    <!-- build:js -->
+    <script src="js/common.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?76babef92c3bcf99f974fd5aa85c2f0e";
+            var s = document.getElementsByTagName("script")[0];                                    s.parentNode.insertBefore(hm, s);
+        })();
+        var cssArr;
+        if (location.host=='fifa2018.vgs.lenovo.com.cn' ||location.host=='fifa2018-dev.vgs.lenovo.com.cn') {
+            cssArr = ["/css/($cssVersion).css"];
+        }else {
+            cssArr = ["/css/main.css","/css/schedule.css"];
+        }
+        //适配插件
+        G.adaptation({
+            size:1345, //适配宽度，以设计图为准,默认640
+            cssUrl:cssArr,//要适配的样式表，支持 ID CLASS 和远程
+            // metaview:"",//meta参数默认不加
+            response:true, //响应式  主要针对页面 .wap .pad .pc .wap-pad .pad-p 进行响应式操作 默认关闭，.wap <=640 .pad > 640 <= 960 .pc >960 , .wap-pad 和 pad.pc 属于过度样式 dd
+            lastpx:0.5,//最小PX
+            cbk:function(){  //适配成功后回调函数
+                // console.log("改变成功123");
+            }
+        });
+
+    </script>
+
+</head>
+<body>
+<div id="example"></div>
+<div id="example1"></div>
+<div id="about" class="nano">
+    <div class="nano-content">
+        <div class="container">
+            <div id="fixed_QR_code" style="display: none;">
+                <div class="QR_code"><img src="img/qr_code_icon.png" alt=""></div>
+                <div class="QR_desc">
+                    <img class=" scan_background_white"  src="img/background_white.png" alt="">
+                    <img class=" scan_background_blue" src="img/background_blue.png" alt="">
+                    <img class="scan_close" src="img/scan_close_icon.png" alt="">
+                    <img class="scan_show" src="img/scan_icon.png" alt="">
+                    <span>扫码看直播</span>
+                </div>
+            </div>
+            <!--返回顶部-->
+            <div id="back_top">
+                <img class=" scan_background_white"  src="img/background_white.png" alt="">
+                <img class=" scan_background_blue" src="img/background_blue.png" alt="">
+                <img class="scan_close" src="img/back_close.png" alt="">
+                <img class="scan_show" src="img/back_show.png" alt="">
+                <span>返回顶部</span>
+            </div>
+            <!--顶栏-->
+            <div class="header">
+                <div class="top">
+                    <div class="top_title">联想视频</div>
+                    <div class="login">登录</div>
+                    <div id="logined">
+                        <div id="user_info">
+                            <div class="nickname">
+                                <img class="avatar" src="img/default_avatar.png" alt="">
+                                <span id="nickname"></span>
+                                <img class="show_more" src="img/show_more_icon.png" alt="">
+                            </div>
+                        </div>
+                        <div id="more_set" style="background:#2A2B2C;width: 88px;">
+                            <div id="change_account">切换账号</div>
+                            <div id="login_out">退出</div>
+                        </div>
+                    </div>
+                </div>
+                <img src="img/banner.png" alt="">
+                <div id="live" style="display: none"><a href="#"><span>直播</span></a> <img src="img/qr_code_icon.png" alt=""> </div>
+                <!-- 导航-->
+                <ul class="nav">
+                    <li><a href="#top_carousel">赛事直播</a></li>
+                    <li><a href="#hit_world">直击世界杯</a></li>
+                    <li><a href="#play_game">足球游戏</a></li>
+                    <li><a href="#game_schedule">赛程赛果</a></li>
+                    <li><a href="#super_star">超级巨星</a></li>
+                    <li><a id="world_cup_2014_a" href="#world_cup_2014">世界杯殿堂</a></li>
+                    <li><a id="highlights_a" href="#highlights">精彩花絮</a></li>
+                </ul>
+            </div>
+            <!-- 中间内容-->
+            <div class="content">
+
+                <div class="left_one"><img src="img/left_one.png" alt=""></div>
+                <div class="left_two"><img src="img/left_two.png" alt=""></div>
+                <div class="right_one"><img src="img/right_one.png" alt=""></div>
+                <div class="right_two"><img src="img/right_two.png" alt=""></div>
+                <!--顶部轮播-->
+                <div id="top_carousel" class="top_carousel">
+                    <div class="to_left" onclick="toLeft('.top_carousel .carousel_container ul',930,30)">
+                        <img src="img/to_left.png" alt="">
+                    </div>
+                    <div class="to_right" onclick="toRight('.top_carousel .carousel_container ul',930,30)">
+                        <img src="img/to_right.png" alt="">
+                    </div>
+                    <div class="carousel_container">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+                <!--直接世界杯-->
+                <div id="hit_world" class="hit_world clearFix">
+                    <div class="hit_left">
+                        <div class="hit_title">
+                            <img class="hit_world_cup_icon" src="img/hit_world_cup.png" alt="">
+                            <a target="_blank" class="more_info" href="http://worldcup.cctv.com/2018/videos/index.shtml">更多></a>
+                        </div>
+                        <div class="hit_content">
+                        </div>
+                    </div>
+                    <div class="hit_right">
+                        <div class="hit_title">
+                            <img class="hit_game_info_icon" src="img/hit_game_info.png" alt="">
+                            <a target="_blank" class="more_info" href="http://worldcup.cctv.com/2018/news/index.shtml">更多></a>
+                        </div>
+                        <ul class="hit_content">
+                        </ul>
+                    </div>
+                </div>
+                <!--爱足球也爱玩游戏-->
+                <div id="play_game"   class="play_game clearFix">
+                    <div class="useful_title">
+                        <div class="title_container">
+                            <span class="left_icon right_icon" style="color: #4262BB;">爱足球也爱玩游戏</span>
+                        </div>
+                    </div>
+                    <div class="play_game_content">
+                    </div>
+                </div>
+                <!--2018赛程-->
+                <div id="game_schedule" class="game_schedule clearFix">
+                    <div class="schedule_container">
+                        <div class="schedule_left">
+                            <div class="schedule_title"><img src="img/team_schedule.png" alt=""> <span class="all_schedule"><a target="_blank" href="./schedule/index.html">全部赛程></a></span></div>
+                            <div class="schedule_info">
+                                <ul class="schedule_date">
+                                    <li>时间</li>
+                                </ul>
+                                <ul class="schedule_team">
+                                    <li>对阵</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="schedule_right">
+                            <div class="schedule_title"><img src="img/score_rank.png" alt=""></div>
+                            <div class="schedule_info">
+                                <ul class="schedule_group">
+                                    <li class="checked"><span>A</span></li>
+                                    <li><span>B</span></li>
+                                    <li><span>C</span></li>
+                                    <li><span>D</span></li>
+                                    <li><span>E</span></li>
+                                    <li><span>F</span></li>
+                                    <li><span>G</span></li>
+                                    <li><span>H</span></li>
+
+                                </ul>
+                                <ul class="group_info">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--淘汰赛-->
+                <div id="playoffs" style="display: none;" class="playoffs clearFix">
+                    <div class="useful_title">
+                        <div class="title_container">
+                            <span class="left_icon right_icon" style="color: #4262BB;">淘汰赛</span>
+                        </div>
+                    </div>
+                    <div class="playoffs_info">
+                        <img class="playoffs_background" src="/img/playoffs_background.png" alt="">
+                        <ul class="eight_game"><li>1/8决赛</li></ul>
+                        <ul class="four_game" style="margin-left:10px">  <li>1/4决赛</li></ul>
+                        <ul class="two_game"><li>半决赛</li></ul>
+                        <ul class="end_game"><li style="background: #DE4E67;">决赛</li><li class="item3">三四名决赛</li></ul>
+                        <ul class="two_game"><li>半决赛</li></ul>
+                        <ul class="four_game"><li>1/4决赛</li></ul>
+                        <ul class="eight_game" style="float: right;"><li>1/8决赛</li></ul>
+                    </div>
+                </div>
+                <!--超级巨星-->
+                <div id="super_star" class="super_star clearFix">
+                    <div class="useful_title">
+                        <div class="title_container">
+                            <span class="left_icon right_icon" style="color: #4262BB;">超级巨星</span>
+                        </div>
+                        <ul class="star_info">
+
+                        </ul>
+                    </div>
+                </div>
+                <!--2014世界杯回顾 -->
+                <div id="world_cup_2014" class="world_cup_2014 clearFix">
+                    <div class="useful_title">
+                        <div class="title_container">
+                            <span class="left_icon right_icon" style="color: #4262BB;">世界杯殿堂</span>
+                        </div>
+                    </div>
+                    <div class="carousel_2014 carousel_footer">
+                        <div class="to_left" onclick="toLeft('.carousel_2014 .carousel_container ul',930,30)">
+                            <img src="img/to_left1.png" alt="">
+                        </div>
+                        <div class="to_right" onclick="toRight('.carousel_2014 .carousel_container ul',930,30)">
+                            <img src="img/to_right1.png" alt="">
+                        </div>
+                        <div class="carousel_container">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+                <!--精彩花絮-->
+                <div id="highlights" class="highlights clearFix">
+                    <div class="useful_title">
+                        <div class="title_container">
+                            <span class="left_icon right_icon" style="color: #4262BB;">精彩花絮</span>
+                        </div>
+                    </div>
+                    <div class="carousel_highlights carousel_footer">
+                        <div class="to_left" onclick="toLeft('.carousel_highlights .carousel_container ul',930,30)">
+                            <img src="img/to_left1.png" alt="">
+
+                        </div>
+                        <div class="to_right" onclick="toRight('.carousel_highlights .carousel_container ul',930,30)">
+                            <img src="img/to_right1.png" alt="">
+
+                        </div>
+                        <div class="carousel_container">
+                            <ul></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 底部-->
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

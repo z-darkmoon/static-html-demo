@@ -1,0 +1,195 @@
+@red_color:#DE4E67;
+body{
+  background: #ffffff;
+}
+.schedule_nav{
+  height: 58px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #3975BD;
+  padding: 0 150px;
+  li{
+    width: 146px;
+    float: left;
+    line-height: 58px;
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    &.checked{
+      background: #548ED4;
+    }
+  }
+}
+
+.game_schedule_list{
+  position: relative;
+  width: 1049px;
+  margin: 0 auto;
+  .schedule_container{
+    margin-top: 20px;
+    //position: absolute;
+    //top: 124px;
+    //left: 149px;
+   span,p{
+     color: #333333;
+   }
+    &.item_odd{
+      .schedule_date {
+        li:first-child {
+          background:#DE4E67 !important;
+          border-bottom: 1px solid #DE4E67 !important;
+        }
+      }
+
+    }
+    &.item_even{
+      .schedule_date {
+        li:first-child {
+          background:#5090DD !important;
+          border-bottom: 1px solid #5090DD !important;
+        }
+      }
+
+    }
+    .group_name{
+      font-size: 18px;
+      height: 46px;
+      line-height: 46px;
+    }
+    .schedule_info{
+      background: #ffffff;
+      ul{
+        margin-left: 1px;
+        &:first-child{
+          margin-left: 0;
+        }
+       li{
+         &:first-child{
+           height: 32px ;
+           line-height: 32px;
+           padding: 0;
+           color: #565656;
+           background: #F0F0F0;
+         }
+         &.item1,&.item3,&.item5 {
+           background: #F0F0F0;
+
+         }
+       }
+      }
+      .schedule_date{
+        display: inline-block;
+        float: left;
+        width: 200px;
+        //border: 1px solid #e2e2e2;
+        li{
+          text-align: center;
+          border-bottom: 1px solid #e2e2e2;
+          height: 59px;
+          line-height: 59px;
+          color: #333333;
+          &:first-child{
+            height: 32px;
+            line-height: 32px;
+            background: @red_color;
+            color: #ffffff;
+            border-bottom-color: @red_color;
+          }
+          &:last-child{
+            border-bottom: 0;
+          }
+        }
+      }
+      .schedule_team{
+        display: inline-block;
+        float: left;
+        width: 466px;
+        //border: 1px solid #e2e2e2;
+        li{
+          text-align: center;
+          border-bottom: 1px solid #e2e2e2;
+          height: 59px;
+          line-height: 27px;
+          background: #ffffff;
+          padding: 16px 0;
+          .schedule_content{
+            height: 27px;
+            &>* {
+              float: left;
+
+            }
+            .home_team_img,.visiting_team_img{
+              display: inline-block;
+              width: 34px;
+              height: 27px;
+              border: 1px solid #999999;
+            }
+            .home_team_name{
+              padding-right: 17px;
+              width: 30%;
+              text-align: right;
+              overflow: hidden;
+            }
+            .visiting_team_name{
+              padding-left: 23px;
+              width: 30%;
+              text-align: left;
+              overflow: hidden;
+            }
+            span{
+              display: inline-block;
+              height: 27px;
+              line-height: 27px;
+              color: #2A4FB2;
+            }
+            i{
+              color: #C84749;
+              font-size: 18px;
+              padding-left: 43px;
+              padding-right: 34px;
+            }
+          }
+          &:first-child{
+            height: 32px;
+            line-height: 32px ;
+            padding: 0;
+            background: #f0f0f0;
+            color: #565656;
+          }
+          &:last-child{
+            border-bottom: 0;
+          }
+        }
+      }
+      .schedule_place{
+        float: left;
+        width: 210px;
+        text-align: center;
+        li{
+          text-align: center;
+          border-bottom: 1px solid #e2e2e2;
+          height: 59px;
+          line-height: 27px;
+          background: #ffffff;
+          padding: 16px 0;
+        }
+      }
+      .schedule_scores{
+        float: left;
+        width: 166px;
+        text-align: center;
+        li{
+          text-align: center;
+          border-bottom: 1px solid #e2e2e2;
+          height: 59px;
+          line-height: 27px;
+          background: #ffffff;
+          padding: 16px 0;
+        }
+      }
+    }
+  }
+}

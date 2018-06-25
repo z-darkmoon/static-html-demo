@@ -1,0 +1,1211 @@
+//@red_color:#DE4E67;
+@red_color:#DE4E67;
+@import "schedule.less";
+body{
+  background: #ffffff;
+}
+.container{
+  margin: 0 auto;
+  width: 1345px;
+  //min-width: 1345px;
+  position: relative;
+  overflow: hidden;
+  #live{
+    //overflow: hidden;
+    position: absolute;
+    right: 135px;
+    //bottom: 96px;
+    bottom: 133px;
+    z-index: 99;
+    //height: 115px;
+    //width: 210px;
+    height: 40px;
+    &:hover{
+      right: 20px;
+      img{
+        display: inline-block;
+      }
+    }
+    span{
+      display: inline-block;
+      width: 82px;
+      height: 40px;
+      line-height: 40px;
+      background: #ED7344;
+      color: #ffffff;
+      font-size: 18px;
+      text-align: center;
+      float: left;
+      margin-right: 20px;
+      //margin-top: 37px;
+    }
+    img{
+      margin: 0;
+      float: left;
+      display: none;
+      width: 115px;
+      height: 115px;
+      background: #ffffff;
+      margin-top: -37px;
+    }
+  }
+  .header{
+    margin: 0 auto;
+    width: 1345px;
+    //height: 616px;
+    position: relative;
+    overflow: hidden;
+    .top{
+      display: none;
+      width: 100%;
+      height: 50px;
+      background: #191A1B;
+      line-height: 50px;
+      .top_title{
+        margin-left: 36px;
+        float: left;
+        color: #ffffff;
+        font-size: 18px;
+      }
+      .login {
+        display: inline-block;
+        width: 83px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 32px;
+        text-align: center;
+        background: #295FC7;
+        float: right;
+        margin: 8px 80px auto auto;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    }
+    img {
+      width: 100%;
+      //height: 100%;
+      //margin-top: -26px;
+
+    }
+    .nav{
+      padding-left:154px;
+      padding-right:149px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 80px;
+      width: 100%;
+      background: #3975BD;
+      li{
+        float: left;
+        line-height: 80px;
+        margin-left: 84px;
+        font-size: 17px;
+        &:first-child{
+          margin: 0;
+        }
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .content{
+
+    //margin-top: -11px;
+    position: relative;
+    padding-bottom: 100px;
+    //顶部轮播
+    .top_carousel{
+    width: 1045px;
+    margin: 0 auto;
+    height: 252px;
+    border: 18px solid #b2e1ff;
+    background: #92cef8;
+    position: relative;
+    .carousel_container{
+      margin-left: 46px;
+      width: 930px;
+      height: 194px;
+      overflow: hidden;
+      position: relative;
+      a{
+        text-decoration: none;
+      }
+      ul{
+        margin-left: -20px;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        .api_info{
+          float: left;
+          padding-left: 20px;
+          padding-top: 18px;
+          a{
+            img{
+              width: 290px;
+              height: 174px;
+            }
+          }
+        }
+        .sina_info{
+          float: left;
+          margin-left: 20px;
+          margin-top: 18px;
+          width: 290px;
+          height: 174px;
+          background: #ffffff;
+          position: relative;
+          cursor: pointer;
+          &:hover{
+            .title{
+              color: #000;
+            }
+          }
+          .top_title{
+            width: 100%;
+            height: 40px;
+            line-height:40px;
+            font-size: 16px;
+            padding-left: 24px;
+            padding-right: 26px;
+            .game_date{
+              font-size: 16px;
+              color: #565656;
+              float: left;
+            }
+            .game_time{
+              font-size: 16px;
+              color: #565656;
+              float: left;
+              padding-left:40px;
+            }
+            .title{
+              display: inline-block;
+              float: right;
+              color: #565656;
+              font-size: 16px;
+            }
+          }
+          .game_content{
+            //padding: 27px 20px 10px;
+            padding:  20px 27px;
+            overflow: hidden;
+            .country{
+              width: 46px;
+              float: left;
+              .home_team_name,.visiting_team_name{
+                display: inline-block;
+                width: 66px;
+                margin-left: -10px;
+                color: #565656;
+                margin-top: 6px;
+                text-align: center;
+                white-space: nowrap;
+              }
+              
+            }
+            .home_team_img,.visiting_team_img{
+              display: inline-block;
+              width: 46px;
+              height: 32px;
+              border: 1px solid #999999;
+              float: left;
+            }
+            i{
+              float: left;
+              color: #C84749;
+              font-size: 30px;
+              padding-left:52px;
+              padding-right: 50px;
+            }
+          }
+          .footer{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: #e9e9e9;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            color: #333333;
+           .live{
+             display: inline-block;
+             float: left;
+             color: #565656;
+             font-size: 16px;
+             margin-left: 20px;
+           }
+            .source{
+              display: inline-block;
+              float: right;
+              color: #757575;
+              font-size: 14px;
+              margin-right: 20px;
+            }
+            p{
+              display: inline-block;
+              border-radius: 30px;
+              width: 95px;
+              height: 30px;
+              line-height: 30px;
+              text-align: center;
+              background: #f23e64;
+              color: #ffffff;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+    //直击世界杯
+    .hit_world{
+      width: 1049px;
+      margin: 0 auto;
+      margin-top: 47px;
+      .more_info{
+        height: 42px;
+        line-height: 42px;
+        text-align: center;
+        display: inline-block;
+        float: right;
+        margin-right: 20px;
+        font-size: 16px;
+        color: #565656;
+        &:first-child{
+          margin-left: 28px;
+        }
+      }
+      .hit_left{
+        float: left;
+        width: 575px;
+        .hit_title{
+          height: 42px;
+          margin-left: -10px;
+          .hit_world_cup_icon {
+            width: 165px;
+            height: 42px;
+            display: inline-block;
+          }
+        }
+        .hit_content{
+          .background_color{
+
+          }
+          .top_img{
+            position: relative;
+            width: 100%;
+            height: 314px;
+            cursor: pointer;
+            .poster{
+              width: 100%;
+              height: 100%;
+            }
+            .play_icon{
+              position: absolute;
+              top: 189px;
+              left: 15px;
+              width: 52px;
+              height: 52px;
+              background: url("../img/play_icon.png") no-repeat center;
+              background-size: contain;
+            }
+            .desc {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              color: #ffffff;
+              width: 575px;
+              height: 46px;
+              line-height: 46px;
+              padding-left: 20px;
+              background: url("../img/background_color.png");
+              //cursor: pointer;
+              overflow: hidden;
+              white-space: nowrap;
+              word-wrap: break-word;
+              text-overflow: ellipsis;
+            }
+          }
+          ul{
+            margin-top: 9px;
+            width: 100%;
+            li{
+              cursor: pointer;
+              display: inline-block;
+              float: left;
+              margin-left: 8px;
+              &:first-child{
+                margin: 0;
+              }
+              img{
+                width: 186px;
+                height: 117px;
+              }
+            }
+          }
+        }
+      }
+      .hit_right{
+        float: right;
+        width: 470px;
+        .hit_title{
+          height: 42px;
+          margin-left: -9px;
+          .hit_game_info_icon {
+            width: 130px;
+            height: 42px;
+            display: inline-block;
+          }
+        }
+        .hit_content{
+          .source{
+            font-size: 14px;
+          }
+          background: #ffffff;
+          a{
+            text-decoration: none;
+          }
+          span{
+            color: #999999;
+          }
+          li{
+            padding: 11px 20px;
+            height: 63px;
+            font-size: 16px;
+            color: #999999;
+            &>p{
+              float: left;
+            }
+            &.item_odd{
+              background: #f3f3f3;
+            }
+          }
+        }
+      }
+
+    }
+    //游戏
+    .play_game{
+      margin-top:70px;
+      .play_game_content{
+        margin: 0 auto;
+        width: 1345px;
+        height: 395px;
+        position: relative;
+        &:hover #start_game_start{
+          display: block;
+          z-index: 99;
+        }
+        #start_game_start{
+          display: none;
+        }
+        #start_game,#start_game_start{
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 207px;
+          height: 72px;
+          z-index: 77;
+        }
+
+        a{
+          text-decoration: none;
+          display: inline-block;
+          .poster{
+            width: 1345px;
+            height: 345px;
+            margin: 50px auto 0;
+          }
+          .title{
+            text-align: center;
+            margin: 27px auto 0;
+            width: 668px;
+            font-size: 16px;
+            color: #333333;
+            line-height: 34px;
+          }
+        }
+      }
+    }
+    //2018
+    .game_schedule{
+      margin-top: 70px;
+      width: 100%;
+      height: 490px;
+      background: url("../img/2018_football.png") no-repeat right center;
+      //-webkit-background-size: 1604px 607px;
+      //background-size: 1604px 607px;
+      background-size: cover;
+      position: relative;
+      .schedule_title{
+        height: 42px;
+        margin-left: -10px;
+        img{
+          height: 100%;
+        }
+      }
+      .schedule_container{
+        position: absolute;
+        top: 124px;
+        left: 149px;
+        .schedule_left{
+          width: 667px;
+          float: left;
+          .all_schedule{
+            float: right;
+            color: #efefef;
+            line-height: 42px;
+            font-size:16px;
+          }
+          .schedule_info{
+            .schedule_date{
+              display: inline-block;
+              float: left;
+              width: 200px;
+              //border: 1px solid #e2e2e2;
+              li{
+                text-align: center;
+                border-bottom: 1px solid #e2e2e2;
+                height: 59px;
+                line-height: 59px;
+                background: #f0f0f0;
+                color: #333333;
+                &:first-child{
+                  height: 32px;
+                  line-height: 32px;
+                  background: @red_color;
+                  color: #ffffff;
+                  border-bottom-color: @red_color;
+                }
+                &:last-child{
+                  border-bottom: 0;
+                }
+              }
+            }
+            .schedule_team{
+              display: inline-block;
+              float: left;
+              width: 466px;
+              //border: 1px solid #e2e2e2;
+              li{
+                text-align: center;
+                border-bottom: 1px solid #e2e2e2;
+                height: 59px;
+                line-height: 27px;
+                background: #ffffff;
+                padding: 16px 0;
+                .schedule_content{
+                  height: 27px;
+                  &>* {
+                    float: left;
+                  }
+                  .home_team_img,.visiting_team_img{
+                    display: inline-block;
+                    width: 34px;
+                    height: 27px;
+                    border: 1px solid #999999;
+                  }
+                  .home_team_name{
+                    padding-right: 17px;
+                    width: 30%;
+                    text-align: right;
+                    overflow: hidden;
+                  }
+                  .visiting_team_name{
+                    padding-left: 23px;
+                    width: 30%;
+                    text-align: left;
+                    overflow: hidden;
+                  }
+                  span{
+                    display: inline-block;
+                    height: 27px;
+                    line-height: 27px;
+                    color: #2A4FB2;
+                  }
+                  i{
+                    color: #C84749;
+                    font-size: 18px;
+                    padding-left: 43px;
+                    padding-right: 34px;
+                  }
+                }
+                &:first-child{
+                  height: 32px;
+                  line-height: 32px ;
+                  padding: 0;
+                  background: #f0f0f0;
+                  color: #333333;
+                }
+                &:last-child{
+                  border-bottom: 0;
+                }
+              }
+            }
+          }
+        }
+        .schedule_right{
+          width: 341px;
+          float: left;
+          margin-left: 38px;
+          .schedule_info{
+            .schedule_group{
+              padding-left:10px;
+              height: 32px;
+              background: @red_color;
+              .checked{
+               &>span{
+                 display: inline-block;
+                 width: 32px;
+                 height: 32px;
+                 line-height: 32px;
+                 //margin-top: 4px;
+                 margin-left: 4px;
+                 float: left;
+                 background: #bf4658;
+               }
+              }
+              li{
+                line-height: 32px;
+                float: left;
+                color: #ffffff;
+                cursor: pointer;
+                width: 40px;
+                text-align: center;
+              }
+            }
+            .group_info{
+              background-color: #ffffff;
+              li{
+                &.item_odd{
+                  background: #f7f7f7;
+                }
+                height: 59px;
+                border-bottom: 1px solid #f7f7f7;
+                .rank{
+                  width: 60px;
+                  height: 100%;
+                  background: #f0f0f0;
+                  text-align: center;
+                  float: left;
+                  img{
+                    display: inline-block;
+                    margin-top: 18px;
+                    height: 24px;
+                  }
+                }
+                .rank_team{
+                  float: left;
+                  width: 275px;
+                  height: 59px;
+                  padding-left: 28px;
+                  padding-top: 16px;
+                  padding-bottom: 17px;
+                  //overflow: hidden;
+                  img{
+                    float: left;
+                    width: 34px;
+                    height: 27px;
+                    bottom: 0;
+                    margin: 0;
+                    border: 0;
+                  }
+                  span{
+                    float: left;
+                    display: inline-block;
+                    height: 28px;
+                    line-height: 28px;
+                    color: #333333;
+                  }
+                  .team_name{
+                    margin-left: 13px;
+                    color: #2A4FB2;
+                    text-align: left;
+                    width: 40%;
+                  }
+                  .played_num{
+                    color: #2F6AB2;
+                    margin-right: 4px;
+                  }
+                  .team_score{
+                    color: #751C25;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //淘汰赛
+    .playoffs{
+      width: 100%;
+      margin-top: 50px;
+      .playoffs_info{
+        width: 1045px;
+        height: 523px;
+        margin: 48px auto 0;
+        //background: url("../img/playoffs_background.png") no-repeat top;
+        //background-size: 1045px 534px;
+        padding: 0 1px;
+        position: relative;
+        .playoffs_background{
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: -1;
+          width: 1045px;
+          height: 523px;
+        }
+        ul{
+          width: 141px;
+          float: left;
+          margin-left: 9px;
+          li{
+            text-align: center;
+            color: #ffffff;
+            height: 105px;
+            .playoffs_date{
+              background: #3979C6;
+              height: 26px;
+              line-height: 26px;
+              .date{
+                padding-left: 5px;
+                padding-right: 5px;
+              }
+            }
+            .team_info{
+              padding:2px 18px;
+              width: 100%;
+              height: 80px;
+              background: #ffffff;
+              .home_team{
+                width: 100%;
+                color: #F93D28;
+                height: 38px;
+                line-height: 38px;
+                span{
+                  &:first-child{
+                    float: left;
+                  }
+                  &:last-child{
+                    float: right;
+                  }
+                }
+              }
+              .visiting_team{
+                width: 100%;
+                color: #4A6CD7;
+                height: 38px;
+                line-height: 38px;
+                span{
+                  &:first-child{
+                    float: left;
+                  }
+                  &:last-child{
+                    float: right;
+                  }
+                }
+              }
+            }
+            &:first-child{
+              height: 31px;
+              line-height: 31px;
+              background: #2264B3;
+              margin-top: 0;
+            }
+          }
+        }
+        .eight_game{
+          margin-left: 0;
+          li{
+            margin-top: 20px;
+            &.item1{
+              margin-top: 10px;
+            }
+          }
+        }
+        .four_game{
+          li{
+            &.item1{
+              margin-top: 114px;
+            }
+            &.item2{
+              margin-top: 20px;
+            }
+          }
+        }
+        .two_game{
+          li{
+            &.item1{
+              margin-top: 174px;
+            }
+          }
+        }
+        .end_game{
+          position: relative;
+          li{
+            &.item3{
+              position: absolute;
+              top: 323px;
+              left: 0;
+              color: #4588D8;
+              font-size: 16px;
+              width: 141px;
+              height: 16px;
+              font-weight: 100;
+              text-align: center;
+            }
+            &.item1{
+              height: 152px;
+              margin-top: 114px;
+              background: url("/img/end_game_background.png") no-repeat center;
+              background-size: contain;
+              .playoffs_date{
+                background: transparent;
+              }
+              .team_info{
+                background: transparent;
+                font-size: 18px;
+                padding: 8px 23px;
+                .home_team{
+                  color: #ffffff;
+                  height: 38px;
+                  line-height: 38px;
+                }
+                .visiting_team{
+                  color: #ffffff;
+                  height: 38px;
+                  line-height: 38px;
+                }
+              }
+            }
+            &.item2{
+              margin-top: 63px;
+              .playoffs_date{
+                background: #4588D8;
+              }
+              .team_info{
+                background: #2264B3;
+                height: 95px;
+                font-size: 14px;
+                padding: 8px 23px;
+                .home_team{
+                  color: #ffffff;
+                  height: 38px;
+                  line-height: 38px;
+                }
+                .visiting_team{
+                  color: #ffffff;
+                  height: 38px;
+                  line-height: 38px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //超级巨星
+    .super_star{
+      width: 1045px;
+      margin: 48px  auto 0 ;
+      .star_info {
+        width: 100%;
+        height: 290px;
+        margin-top: 50px;
+        li{
+          width: 254px;
+          height: 290px;
+          float: left;
+          margin-left: 24px;
+          position: relative;
+          .footer_background{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 1;
+          }
+          .star_title{
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding-left: 19px;
+            padding-bottom: 8px;
+            width: 100%;
+            z-index: 2;
+            .title{
+              display: block;
+              text-align: left;
+              width: 186px;
+              height: 16px;
+              line-height: 16px;
+              font-size: 16px;
+              color:#ffffff;
+              overflow: hidden;
+              white-space: nowrap;
+              word-wrap: break-word;
+              text-overflow: ellipsis;
+            }
+            .source{
+              margin-top: 8px;
+              height: 10px;
+              line-height: 10px;
+              color: #ffffff;
+              font-size: 10px;
+              text-align: left;
+            }
+          }
+
+          img{
+            width: 100%;
+            height: 100%;
+          }
+          &:first-child{
+            margin: 0;
+          }
+          &.item1,&.item4{
+            margin-top: 29px;
+            width: 232px;
+            height: 232px;
+          }
+        }
+      }
+    }
+    //2014  精彩花絮
+    .world_cup_2014,.highlights{
+      margin-top: 50px;
+      .carousel_footer{
+        width: 1045px;
+        margin: 50px auto 0;
+        height: 252px;
+        border: 18px solid #b2e1ff;
+        background: #ffffff;
+        position: relative;
+        .carousel_container{
+          margin-left: 46px;
+          width: 930px;
+          height: 194px;
+          overflow: hidden;
+          position: relative;
+          ul{
+            margin-left: -20px;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            li{
+              width: 166px;
+              height: 177px;
+              float: left;
+              margin-left: 20px;
+              margin-top: 20px;
+              background: #55A5EB;
+              cursor: pointer;
+              .carousel_footer_poster{
+                display: block;
+                width: 166px;
+                height: 127px;
+                float: left;
+                img{
+                  width: 166px;
+                  height: 127px;
+                }
+              }
+              .carousel_footer_title{
+                display: block;
+                float: left;
+                width: 140px;
+                height: 50px;
+                line-height: 50px;
+                color: #ffffff;
+                margin-left: 14px;
+                overflow: hidden;
+                white-space: nowrap;
+                word-wrap: break-word;
+                text-overflow: ellipsis;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //底部通用标题
+  .useful_title{
+    width: 100%;
+    text-align: center;
+   .title_container{
+     display: inline-block;
+     margin: 0 auto;
+
+     .left_icon:before{
+       content: '';
+       display: inline-block;
+       width: 210px;
+       height: 15px;
+       margin-right: 25px;
+       background: url("../img/left_icon.png") no-repeat center;
+       background-size: contain;
+     }
+     .right_icon:after{
+       content: '';
+       display: inline-block;
+       width: 204px;
+       height: 15px;
+       margin-left: 27px;
+       background: url("../img/right_icon.png") no-repeat center;
+       background-size: contain;
+     }
+     span{
+       display: inline-block;
+       font-size: 28px;
+     }
+   }
+  }
+ .left_one,.left_two,.right_one,.right_two{
+   img{
+     height: 100%;
+   }
+ }
+  .left_one{
+    position: absolute;
+    left: 0;
+    top: 466px;
+    width: 349px;
+    height: 666px;
+    z-index: -1;
+  }
+  .left_two{
+    position: absolute;
+    left: -37px;
+    bottom: 1100px;
+    width: 330px;
+    height: 363px;
+    z-index: -1;
+  }
+  .right_one{
+    position: absolute;
+    right: 0px;
+    top: 197px;
+    width: 289px;
+    height: 391px;
+    z-index: -1;
+  }
+  .right_two{
+    position: absolute;
+    right: 0px;
+    bottom: 73px;
+    width: 305px;
+    height: 567px;
+    z-index: -1;
+  }
+  .to_left{
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 22px;
+    height: 64px;
+    img{
+      width: 100%;
+    }
+    background-size: contain;
+    cursor: pointer;
+  }
+  .to_right{
+    position: absolute;
+    top: 72px;
+    right: 0;
+    width: 22px;
+    height: 64px;
+    background-size: contain;
+    cursor: pointer;
+    img{
+      width: 100%;
+    }
+  }
+}
+#example{width: 930px;}
+#example1{width: 14px;}
+#fixed_QR_code{
+  //width: 40px;
+  position: fixed;
+  right: 1px;
+  bottom: 300px;
+  z-index: 999;
+  height: 172px;
+  &:hover{
+    .QR_code{
+      display: block;
+    }
+    .QR_desc{
+      color: #ffffff;
+      //background:#3979C6 ;
+      .scan_show,.scan_background_blue{
+        display:block;
+      }
+      .scan_close,.scan_background_white{
+        display:none;
+      }
+    }
+  }
+  .QR_desc{
+    float: left;
+    width: 40px;
+    height: 172px;
+    color: #565656;
+    padding: 16px 12px;
+    border-radius:2px;
+    position: relative;
+    .scan_show{
+      float: left;
+      display:none;
+      margin-left: -2px;
+      margin-bottom: 10px;
+    }
+    .scan_close{
+      margin-left: -2px;
+      margin-bottom: 10px;
+      float: left;
+      display:block;
+    }
+    .scan_background_blue{
+      display: none;
+    }
+    .scan_background_white,.scan_background_blue{
+      position: absolute;
+      top: -3px;
+      left: -7px;
+      width: 47px;
+      z-index: -1;
+    }
+    span{
+      float: left;
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+  .QR_code {
+    display: none;
+    width: 191px;
+    height: 186px;
+    float: left;
+    margin-right: 10px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+#back_top {
+  //display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 0;
+  width: 40px;
+  height: 154px;
+  z-index: 888;
+  &:hover{
+    color: #ffffff;
+    //background:#3979C6 ;
+    .scan_show,.scan_background_blue{
+      display:block;
+    }
+    .scan_close,.scan_background_white{
+      display:none;
+    }
+  }
+  color: #565656;
+  padding: 16px 12px;
+  border-radius:2px;
+  .scan_show{
+    float: left;
+    display:none;
+    width: 20px;
+    height: 20px;
+    margin-left: -2px;
+    margin-bottom: 10px;
+  }
+  .scan_close{
+    margin-left: -2px;
+    margin-bottom: 10px;
+    width: 20px;
+    height: 20px;
+    float: left;
+    display:block;
+  }
+  .scan_background_blue{
+    display: none;
+  }
+  .scan_background_white,.scan_background_blue{
+    position: absolute;
+    top: -3px;
+    left: -7px;
+    width: 47px;
+    z-index: -1;
+    height: 154px;
+  }
+  span{
+    float: left;
+    text-align: center;
+    font-size: 16px;
+    line-height: 18px;
+  }
+}
+#logined{
+  display: none;
+  width: 134px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 32px;
+  text-align: center;
+  float: right;
+  margin: 8px 80px auto auto;
+  color: #ffffff;
+  cursor: pointer;
+  position: relative;
+  #user_info{
+    height: 32px;
+  }
+  .avatar{
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    float: left;
+  }
+  .show_more{
+    margin-top: 12px;
+    margin-left: 6px;
+    width: 8px;
+    height: 4px;
+    float: left;
+    display: inline-block;
+  }
+  #more_set{
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 28px;
+  }
+  #nickname{
+    display: inline-block;
+    float: left;
+    margin-left: 12px;
+  }
+  #change_account,#login_out{
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,178 @@
+body {
+  background: #ffffff;
+}
+.schedule_nav {
+  height: 58px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #3975BD;
+  padding: 0 150px;
+}
+.schedule_nav li {
+  width: 146px;
+  float: left;
+  line-height: 58px;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+}
+.schedule_nav li.checked {
+  background: #548ED4;
+}
+.game_schedule_list {
+  position: relative;
+  width: 1049px;
+  margin: 0 auto;
+}
+.game_schedule_list .schedule_container {
+  margin-top: 20px;
+}
+.game_schedule_list .schedule_container span,
+.game_schedule_list .schedule_container p {
+  color: #333333;
+}
+.game_schedule_list .schedule_container.item_odd .schedule_date li:first-child {
+  background: #DE4E67 !important;
+  border-bottom: 1px solid #DE4E67 !important;
+}
+.game_schedule_list .schedule_container.item_even .schedule_date li:first-child {
+  background: #5090DD !important;
+  border-bottom: 1px solid #5090DD !important;
+}
+.game_schedule_list .schedule_container .group_name {
+  font-size: 18px;
+  height: 46px;
+  line-height: 46px;
+}
+.game_schedule_list .schedule_container .schedule_info {
+  background: #ffffff;
+}
+.game_schedule_list .schedule_container .schedule_info ul {
+  margin-left: 1px;
+}
+.game_schedule_list .schedule_container .schedule_info ul:first-child {
+  margin-left: 0;
+}
+.game_schedule_list .schedule_container .schedule_info ul li:first-child {
+  height: 32px ;
+  line-height: 32px;
+  padding: 0;
+  color: #565656;
+  background: #F0F0F0;
+}
+.game_schedule_list .schedule_container .schedule_info ul li.item1,
+.game_schedule_list .schedule_container .schedule_info ul li.item3,
+.game_schedule_list .schedule_container .schedule_info ul li.item5 {
+  background: #F0F0F0;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_date {
+  display: inline-block;
+  float: left;
+  width: 200px;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_date li {
+  text-align: center;
+  border-bottom: 1px solid #e2e2e2;
+  height: 59px;
+  line-height: 59px;
+  color: #333333;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_date li:first-child {
+  height: 32px;
+  line-height: 32px;
+  background: #DE4E67;
+  color: #ffffff;
+  border-bottom-color: #DE4E67;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_date li:last-child {
+  border-bottom: 0;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team {
+  display: inline-block;
+  float: left;
+  width: 466px;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li {
+  text-align: center;
+  border-bottom: 1px solid #e2e2e2;
+  height: 59px;
+  line-height: 27px;
+  background: #ffffff;
+  padding: 16px 0;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content {
+  height: 27px;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content > * {
+  float: left;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content .home_team_img,
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content .visiting_team_img {
+  display: inline-block;
+  width: 34px;
+  height: 27px;
+  border: 1px solid #999999;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content .home_team_name {
+  padding-right: 17px;
+  width: 30%;
+  text-align: right;
+  overflow: hidden;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content .visiting_team_name {
+  padding-left: 23px;
+  width: 30%;
+  text-align: left;
+  overflow: hidden;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content span {
+  display: inline-block;
+  height: 27px;
+  line-height: 27px;
+  color: #2A4FB2;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li .schedule_content i {
+  color: #C84749;
+  font-size: 18px;
+  padding-left: 43px;
+  padding-right: 34px;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li:first-child {
+  height: 32px;
+  line-height: 32px ;
+  padding: 0;
+  background: #f0f0f0;
+  color: #565656;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_team li:last-child {
+  border-bottom: 0;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_place {
+  float: left;
+  width: 210px;
+  text-align: center;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_place li {
+  text-align: center;
+  border-bottom: 1px solid #e2e2e2;
+  height: 59px;
+  line-height: 27px;
+  background: #ffffff;
+  padding: 16px 0;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_scores {
+  float: left;
+  width: 166px;
+  text-align: center;
+}
+.game_schedule_list .schedule_container .schedule_info .schedule_scores li {
+  text-align: center;
+  border-bottom: 1px solid #e2e2e2;
+  height: 59px;
+  line-height: 27px;
+  background: #ffffff;
+  padding: 16px 0;
+}
