@@ -252,6 +252,12 @@ module.exports = function (gulp, $) {
             jsonDest:  outPutPath+imgPath+'*.json',
             entryPath: outPutPath+cssPath+'**/*.css',
             viewDest: outPutPath+cssPath
+        },
+        {
+            taskName: 'revJsonImg',
+            jsonDest:  outPutPath+imgPath+'*.json',
+            entryPath: outPutPath+'/**/*.json',
+            viewDest: outPutPath
         }
     ];
     revHtmlTaskGroup.forEach(function (task) {

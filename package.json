@@ -39,7 +39,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp --run dev ",
     "build": "gulp --run build",
-    "build-test": "gulp --run build-test"
+    "build-test": "gulp --run build-test",
+    "pre":"cd ./dist && http-server"
   },
   "engines": {
     "node":">=7.0",

@@ -17,7 +17,7 @@ module.exports = function (gulp, $) {
             'revJsImg',
             'revCssImg',
             'revHtmlJs',
-
+            'revJsonImg'
         );
     });
 
