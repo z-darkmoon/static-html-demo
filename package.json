@@ -41,6 +41,10 @@
     "build": "gulp --run build",
     "build-test": "gulp --run build-test"
   },
+  "engines": {
+    "node":">=7.0",
+    "npm": ">=4.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/appue/chtml.git"

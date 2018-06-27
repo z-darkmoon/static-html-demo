@@ -12,14 +12,15 @@ var fs   = require('fs'),
     proxy = require('http-proxy-middleware');
 
 var env = require('../config/base.js');
+var baseEnv = require('./env');
 var runType = argv.run || '', // dev、build
-    rootPath=env.inPutPath || './app',
-    outPutPath=env.outPutPath || './dist',
-    cssPath = env.cssPath ||'/css/',
-    imgPath = env.imgPath ||'/img/',
-    jsPath = env.jsPath || '/js/',
-    libPath = env.libPath || '/lib/',
-    staticFiles = env.staticFiles || [],
+    rootPath=env.inPutPath || baseEnv.inPutPath,
+    outPutPath=env.outPutPath || baseEnv.outPutPath,
+    cssPath = env.cssPath ||baseEnv.cssPath,
+    imgPath = env.imgPath ||baseEnv.imgPath,
+    jsPath = env.jsPath || baseEnv.jsPath,
+    libPath = env.libPath || baseEnv.libPath,
+    staticFiles = env.staticFiles || baseEnv.staticFiles,
     netPath     = '',
     d           = new Date(),
     version     = d.getTime(),
@@ -30,7 +31,7 @@ switch (runType) {
         netPath = outPutPath;
     break;
     default: //--dev
-        netPort = argv.port ||env.port || 9989;
+        netPort = argv.port ||env.port || baseEnv.port;
         netPath = rootPath;
 }
 module.exports = function (gulp, $) {
