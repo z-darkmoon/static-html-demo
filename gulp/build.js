@@ -187,7 +187,7 @@ module.exports = function (gulp, $) {
     });
     //压缩js库
     gulp.task('libJs',function () {
-        return gulp.src(rootPath+libPath+'/*')
+        return gulp.src(rootPath+libPath+'*.js')
             // .pipe($.concat('lib-v'+version+'.js'))
             .pipe($.uglify())
             .pipe(rev())
