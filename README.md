@@ -26,7 +26,7 @@
 3. 打包  
 默认打包命令`npm run build` _暂时一个可以接入多个_
  ###注意事项
-html 静态页面中  `<!-- build:css --> <!-- endbuild -->`   
+1. html 静态页面中  `<!-- build:css --> <!-- endbuild -->`   
   `<!-- build:js --><!-- endbuild -->`  不能删除要包括住对应的css引入跟js引入
  会在构建时,被对应压缩替换  jquery 这类js库要写到外部 
  
@@ -41,4 +41,6 @@ html 静态页面中  `<!-- build:css --> <!-- endbuild -->`
       <script src="js/common.js"></script>
       <!-- endbuild -->
  ```
+ 2. css样式支持css与less两种方式
+ 3. 更多页面 可以直接在根目录或新建文件夹 只能编写html,所有js,css放到指定目录
     
