@@ -24,8 +24,9 @@
 指定端口`npm run  dev -- --port 9999`  
 可以在base.js里设置端口号
 3. 打包  
-默认打包命令`npm run build` _暂时一个可以接入多个_
- ###注意事项
+默认打包命令`npm run build` _暂时一个可以接入多个_   
+
+###注意事项
 1. html 静态页面中  `<!-- build:css --> <!-- endbuild -->`   
   `<!-- build:js --><!-- endbuild -->`  不能删除要包括住对应的css引入跟js引入
  会在构建时,被对应压缩替换  jquery 这类js库要写到外部 
