@@ -40,10 +40,10 @@
     "dev": "gulp --run dev ",
     "build": "gulp --run build",
     "build-test": "gulp --run build-test",
-    "pre":"cd ./dist && http-server"
+    "pre": "cd ./dist && http-server"
   },
   "engines": {
-    "node":">=7.0",
+    "node": ">=7.0",
     "npm": ">=4.0"
   },
   "repository": {
@@ -57,6 +57,7 @@
   "homepage": "https://github.com/appue/chtml",
   "dependencies": {
     "gulp-babel": "^7.0.1",
+    "gulp-htmlmin": "^4.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-less": "^3.5.0",
     "gulp-rev": "^8.1.1",

@@ -3,7 +3,7 @@ var fs   = require('fs'),
     babel=require('gulp-babel'),
     path=require('path'),
     stripDebug = require('gulp-strip-debug'),
-    htmlMin=require('gulp-minify-html'),
+    htmlMin=require('gulp-htmlmin'),
     imgMin=require('gulp-imagemin'),
     rev=require('gulp-rev'),
     revCollector=require('gulp-rev-collector'),
@@ -141,8 +141,8 @@ module.exports = function (gulp, $) {
         var options = {
             removeComments: true,//清除HTML注释
             collapseWhitespace: true,//压缩HTML
-            collapseBooleanAttributes: true,//省略布尔属性的值 <input checked="true"/> ==> <input />
-            removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
+            // collapseBooleanAttributes: true,//省略布尔属性的值 <input checked="true"/> ==> <input />
+            // removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
             // removeScriptTypeAttributes: false,//删除<script>的type="text/javascript"
             // removeStyleLinkTypeAttributes: false,//删除<style>和<link>的type="text/css"
             minifyJS: true,//压缩页面JS
