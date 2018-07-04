@@ -329,8 +329,8 @@ function setPlayGameInfo(obj) {
     var ele = obj.elements;
     var realObj = ele[0];
     var reportInfo = ' report_channel_id='+realObj.channelId +' report_element_type='+realObj.elementType +' report_element_id='+realObj.elementId+' report_module_id='+realObj.moduleId +' report_url= "'+ realObj.clickUrl+'" ' +' report_index=1';
-    var content = '<div class="report_base" '+reportInfo +' ><a href="'+ ele[0].clickUrl+'" target="_blank"><img class="poster" src="'+ele[0].poster +'" alt="">  <img id="start_game" src="img/start_game_button.png" alt="">' +
-        '                <img id="start_game_start" src="img/start_game_button_clicked.png" alt=""></a></div>';
+    var content = '<div class="report_base" '+reportInfo +' ><a href="'+ ele[0].clickUrl+'" target="_blank"><img class="poster" src="'+ele[0].poster +'" alt="">  <img id="start_game" src="/img/start_game_button.png" alt="">' +
+        '                <img id="start_game_start" src="/img/start_game_button_clicked.png" alt=""></a></div>';
     parent.append(content);
 }
 // 2018
@@ -384,7 +384,7 @@ function setRankInfo(index) {
 
     for (var i=0;i<group.length;i++) {
         if (group[i]){
-            content += '<li class="item_'+(i%2==0 ? 'odd':'even')+'"><div class="rank"><img src="img/'+arr[i]+'.png" alt=""></div><div class="rank_team"> <img src="/img/team_icon/'+group[i].team_id +'.png" alt=""> <span class="team_name">'+ group[i].name_cn+'</span> <span class="played_num">'+ group[i].games_played+'</span> <span>场 积</span><span class="team_score">'+group[i].points +'</span><span>分</span></div></li>';
+            content += '<li class="item_'+(i%2==0 ? 'odd':'even')+'"><div class="rank"><img src="/img/'+arr[i]+'.png" alt=""></div><div class="rank_team"> <img src="/img/team_icon/'+group[i].team_id +'.png" alt=""> <span class="team_name">'+ group[i].name_cn+'</span> <span class="played_num">'+ group[i].games_played+'</span> <span>场 积</span><span class="team_score">'+group[i].points +'</span><span>分</span></div></li>';
         }
     }
     parent.html(content);
@@ -666,30 +666,30 @@ $(function () {
     });
     $('#top_carousel .to_left')
         .mousedown(function () {
-            $(this).find('img').attr('src','img/click_to_left1.png')
+            $(this).find('img').attr('src','/img/click_to_left1.png')
         })
         .mouseup(function () {
-            $(this).find('img').attr('src','img/to_left.png')
+            $(this).find('img').attr('src','/img/to_left.png')
         })
     $('#top_carousel .to_right')
         .mousedown(function () {
-            $(this).find('img').attr('src','img/click_to_right1.png')
+            $(this).find('img').attr('src','/img/click_to_right1.png')
         })
         .mouseup(function () {
-            $(this).find('img').attr('src','img/to_right.png')
+            $(this).find('img').attr('src','/img/to_right.png')
         })
     $('#world_cup_2014 .to_left,#highlights .to_left')
         .mousedown(function () {
-            $(this).find('img').attr('src','img/click_to_left.png')
+            $(this).find('img').attr('src','/img/click_to_left.png')
         })
         .mouseup(function () {
-            $(this).find('img').attr('src','img/to_left1.png')
+            $(this).find('img').attr('src','/img/to_left1.png')
         })
     $('#world_cup_2014 .to_right,#highlights .to_right')
         .mousedown(function () {
-            $(this).find('img').attr('src','img/click_to_right.png')
+            $(this).find('img').attr('src','/img/click_to_right.png')
         })
         .mouseup(function () {
-            $(this).find('img').attr('src','img/to_right1.png')
+            $(this).find('img').attr('src','/img/to_right1.png')
         });
 })

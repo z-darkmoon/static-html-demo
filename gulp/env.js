@@ -8,6 +8,9 @@ var env = {
     libPath:'/lib/',//静态库js 默认app/lib
     subPagePath:[],//子页面路径 默认所有目录下的html文件
     staticFiles: ['json'],//静态资源 后缀名
+    //todo  自由模式 实时模式 待开发
+    freeMode:false,//自由模式 默认false  打开后js css 将只被压缩 不进行合并
+    liveMode:false,//实时模式  默认false 打开后 js 将被实时压缩渲染 es6==>es5
 };
 
 module.exports = env;

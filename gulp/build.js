@@ -21,6 +21,7 @@ var runType = argv.run || '', // dev、build
     jsPath = env.jsPath || baseEnv.jsPath,
     libPath = env.libPath || baseEnv.libPath,
     staticFiles = env.staticFiles || baseEnv.staticFiles,
+    replace=env.replace,
     netPath     = '',
     d           = new Date(),
     version     = d.getTime(),
@@ -114,21 +115,6 @@ module.exports = function (gulp, $) {
 
     });
 
-
-    //--JS 注入到页面中
-    gulp.task('inject', function() {
-        return gulp.src('./app/index.html')
-            .pipe(
-                $.inject(
-                    gulp.src([
-                            './app/**/*.js',
-                            '!./**/app.js',
-                        ], 
-                        {read: false}), {relative: true}
-                )
-            )
-            .pipe(gulp.dest(rootPath));
-    });
 
     
     //--html js 替换
@@ -266,9 +252,20 @@ module.exports = function (gulp, $) {
     function createRevHtmlTask(taskName, jsonDest, entryPath, viewDest) {
         gulp.task(taskName, function () {
             // var viewDest = paths.dist.view;
-            return gulp.src([jsonDest, entryPath])
-                .pipe(revCollector())
-                .pipe(gulp.dest(viewDest));
+           if(replace.mode&&taskName !='revHtmlJs') {
+               jsonDest = replace.entry;
+               var reg ;
+               var result = gulp.src(entryPath);
+               for (var i=0;i<replace.valueType.length;i++) {
+                   reg=new RegExp(replace.valueType[i].key,'g');
+                   result.pipe($.replace(reg,replace.valueType[i].value))
+               }
+               return result.pipe(gulp.dest(viewDest));
+            }else if(!replace.mode) {
+               return gulp.src([jsonDest, entryPath])
+                   .pipe(revCollector())
+                   .pipe(gulp.dest(viewDest));
+           }
         });
     }
 };
