@@ -11,6 +11,24 @@ var env = {
     //todo  自由模式 实时模式 待开发
     freeMode:false,//自由模式 默认false  打开后js css 将只被压缩 不进行合并
     liveMode:false,//实时模式  默认false 打开后 js 将被实时压缩渲染 es6==>es5
+    // replace:{//资源替换 将本地资源 替换成  线上资源 此模式  所有资源必须使用 绝对路径:/img/***.png
+    //     mode:false,//默认false  不开启
+    //     valueType:[
+    //         {
+    //             key:'/img/',
+    //             value:'https://***4444***/img/'
+    //         },
+    //         {
+    //             key:'/lib/',
+    //             value:'https://***3333***/img/'
+    //         }] //存储替换的对应数据  /img/==>http://***
+    // },
+    // proxyTable: {
+    //     '/back':{
+    //         target: 'http://example.com/',
+    //         changeOrigin:true
+    //     },
+    // }
 };
 
 module.exports = env;

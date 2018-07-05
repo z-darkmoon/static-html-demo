@@ -15,6 +15,11 @@
     |--package.json 项目依赖环境
     |--dist 项目构建输出目录
 ```    
+#### 配置环境  
+1. 安装node,官网下载,建议使用[nvm](https://github.com/creationix/nvm)进行node版本控制(node>7.0)
+2. 全局安装gulp命令    
+  `npm install -g gulp` 
+    
 ####使用
 1. 安装依赖环境   
    `npm install`  
@@ -35,7 +40,22 @@
       jsPath:'/js/',//主js 默认app/js
       libPath:'/lib/',//静态库js 默认app/lib
       subPagePath:[],//子页面路径 默认所有目录下的html文件
-      staticFiles: ['json','swf','gif'],//静态资源 后缀名  
+      staticFiles: ['json','swf','gif'],//静态资源 后缀名 
+      replace:{//资源替换 将本地资源 替换成  线上资源 此模式  所有资源必须使用 绝对路径:/img/***.png
+              mode:false,//默认false  不开启
+              valueType:[
+                 
+                  {
+                      key:'/lib/',
+                      value:'https://***3333***/img/'
+                  }] //存储替换的对应数据  /img/==>http://***
+          },
+          proxyTable: {//代理
+              '/back':{
+                  target: 'http://example.com/',
+                  changeOrigin:true
+              },
+          } 
   ```  
 
 ###注意事项
