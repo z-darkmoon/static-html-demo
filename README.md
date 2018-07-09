@@ -42,7 +42,7 @@
       cssPath:'/css/',//css路径 默认app/css
       imgPath:'/img/',//图片路径 默认app/img
       jsPath:'/js/',//主js 默认app/js
-      libPath:'/lib/',//静态库js 默认app/lib
+      libPath:'/static/js/',//静态库js 默认app/static/js/
       subPagePath:[],//子页面路径 默认所有目录下的html文件
       staticFiles: ['json','swf','gif'],//静态资源 后缀名 
       replace:{//资源替换 将本地资源 替换成  线上资源 此模式  所有资源必须使用 绝对路径:/img/***.png

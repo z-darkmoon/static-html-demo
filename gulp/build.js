@@ -176,9 +176,9 @@ module.exports = function (gulp, $) {
         return gulp.src(rootPath+libPath+'*.js')
             // .pipe($.concat('lib-v'+version+'.js'))
             .pipe($.uglify())
-            .pipe(rev())
-            .pipe(gulp.dest(outPutPath+libPath))
-            .pipe(rev.manifest())
+            // .pipe(rev())
+            // .pipe(gulp.dest(outPutPath+libPath))
+            // .pipe(rev.manifest())
             .pipe(gulp.dest(outPutPath+libPath));
     });
     //--css 迁移
@@ -196,6 +196,7 @@ module.exports = function (gulp, $) {
         return gulp.src([
             rootPath + '/**/*.jpg',
             rootPath + '/**/*.png',
+            '!.' + rootPath + '/static/**/*',
             '!' + rootPath + '/themes/temp/**/*',
             '!.' + rootPath + '/themes/logo/**/*'
         ])
@@ -226,12 +227,12 @@ module.exports = function (gulp, $) {
             entryPath: outPutPath+'/**/*.html',
             viewDest: outPutPath
         },
-        {
-            taskName: 'revHtmlJs',
-            jsonDest: outPutPath+libPath+'*.json',
-            entryPath: outPutPath+'/**/*.html',
-            viewDest: outPutPath
-        },
+        // {
+        //     taskName: 'revHtmlJs',
+        //     jsonDest: outPutPath+libPath+'*.json',
+        //     entryPath: outPutPath+'/**/*.html',
+        //     viewDest: outPutPath
+        // },
         {
             taskName: 'revJsImg',
             jsonDest: outPutPath+imgPath+'*.json',
@@ -255,22 +256,22 @@ module.exports = function (gulp, $) {
         createRevHtmlTask(task.taskName, task.jsonDest, task.entryPath, task.viewDest)
     });
     function createRevHtmlTask(taskName, jsonDest, entryPath, viewDest) {
+        gulp.task(taskName+1,function () {
+
+            var reg ;
+            var result = gulp.src(entryPath);
+            if(replace.mode&&taskName !='revHtmlJs') {
+                for (var i=0;i<replace.valueType.length;i++) {
+                    reg=new RegExp(replace.valueType[i].key,'g');
+                    return result.pipe($.replace(reg,replace.valueType[i].value))
+                        .pipe(gulp.dest(viewDest));
+                }
+            }
+        });
         gulp.task(taskName, function () {
-            // var viewDest = paths.dist.view;
-           if(replace.mode&&taskName !='revHtmlJs') {
-               jsonDest = replace.entry;
-               var reg ;
-               var result = gulp.src(entryPath);
-               for (var i=0;i<replace.valueType.length;i++) {
-                   reg=new RegExp(replace.valueType[i].key,'g');
-                   result.pipe($.replace(reg,replace.valueType[i].value))
-               }
-               return result.pipe(gulp.dest(viewDest));
-            }else if(!replace.mode) {
-               return gulp.src([jsonDest, entryPath])
-                   .pipe(revCollector())
-                   .pipe(gulp.dest(viewDest));
-           }
+            return gulp.src([jsonDest, entryPath,'!./dist/static/**/*'])
+                .pipe(revCollector())
+                .pipe(gulp.dest(viewDest));
         });
     }
 };

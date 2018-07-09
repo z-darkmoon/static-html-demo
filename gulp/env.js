@@ -5,7 +5,7 @@ var env = {
     cssPath:'/css/',//css路径 默认app/css
     imgPath:'/img/',//图片路径 默认app/img
     jsPath:'/js/',//主js 默认app/js
-    libPath:'/lib/',//静态库js 默认app/lib
+    libPath:'/static/js/',//静态库js 默认app/static/js/
     subPagePath:[],//子页面路径 默认所有目录下的html文件
     staticFiles: ['json'],//静态资源 后缀名
     //todo  自由模式 实时模式 待开发

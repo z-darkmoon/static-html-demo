@@ -5,20 +5,20 @@ var fs = require('fs'),
     inject = require('gulp-inject');
 
 var runType = argv.run || ''; // dev、build
+var env = require('../config/base.js');
 module.exports = function (gulp, $) {
     gulp.task('dev', ['less', 'connect', 'watch']);
 
+    var baseTask = [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','movestatic','libJs','replacehtml'];
+    var replace = ['revHtmlImg1', 'revJsImg1', 'revCssImg1', 'revJsonImg1'];
+    var revTask = ['revHtmlImg', 'revJsImg', 'revCssImg', 'revJsonImg'];
 
     gulp.task('build', function () {
-        runSequence(
-            [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','libJs','movestatic'],
-            ['replacehtml'],
-            'revHtmlImg',
-            'revJsImg',
-            'revCssImg',
-            'revHtmlJs',
-            'revJsonImg'
-        );
+        if (env.replace.mode) {
+            runSequence (baseTask, replace, revTask);
+        }else {
+            runSequence (baseTask, revTask);
+        }
     });
 
 
