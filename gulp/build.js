@@ -159,7 +159,7 @@ module.exports = function (gulp, $) {
             })
         });
         // return jsLib;
-    })
+    });
     //压缩主js
     gulp.task('mainJs',function () {
         return  gulp.src(rootPath+jsPath+'*.js')
@@ -184,11 +184,12 @@ module.exports = function (gulp, $) {
     //--css 迁移
     gulp.task('movecss',['less'], function() {
         return gulp.src([
-                rootPath+'/**/*.css',
+                rootPath + '/**/*.css',
+                '!' + rootPath + '/static/**/*.css'
             ])
-            .pipe($.concat('all_v'+version +'.css'))
+            .pipe($.concat('all_v' + version + '.css'))
             .pipe($.minifyCss())
-            .pipe(gulp.dest(outPutPath+cssPath));
+            .pipe(gulp.dest(outPutPath + cssPath));
     });
     //--image 迁移
     gulp.task('moveimages', function() {
@@ -212,6 +213,10 @@ module.exports = function (gulp, $) {
         }
         return gulp.src(arr)
             .pipe(gulp.dest(outPutPath));
+    });
+    gulp.task('movestatic',function () {
+        return gulp.src(rootPath+'/static/**/*')
+            .pipe(gulp.dest(outPutPath+'/static/'));
     });
     //静态库js 图片
     var revHtmlTaskGroup = [

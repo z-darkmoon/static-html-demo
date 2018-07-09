@@ -11,7 +11,7 @@ module.exports = function (gulp, $) {
 
     gulp.task('build', function () {
         runSequence(
-            [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','libJs'],
+            [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','libJs','movestatic'],
             ['replacehtml'],
             'revHtmlImg',
             'revJsImg',
