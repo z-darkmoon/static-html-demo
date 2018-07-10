@@ -73,14 +73,16 @@
 
 1. html 静态页面中
 
-  `<!-- build:css --> <!-- endbuild -->`   
+  ```html
+  <!-- build:css --> <!-- endbuild -->  
     
-  `<!-- build:js --><!-- endbuild -->`  
+  <!-- build:js --><!-- endbuild -->
+  ``` 
    
    不能删除,要包括住对应的css引入跟js引入,这类引入会在构建时,被对应压缩替换;jquery 这类js库要写到外部;  
    例子:  
  
- ```
+ ```html
       <!-- build:css -->
       <link rel="stylesheet" href="css/reset.css">
       <!-- endbuild -->
