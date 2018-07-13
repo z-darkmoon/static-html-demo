@@ -29,11 +29,11 @@ var runType = argv.run || '', // dev、build
     pre = [];
 switch (runType) {
     case 'build':
-        netPort = argv.port ||env.port || 8888;
+        netPort = argv.port ||env.port || baseEnv.port;
         netPath = outPutPath;
     break;
     case 'dev-live':
-        netPort = argv.port || env.port || 8888;
+        netPort = argv.port || env.port || baseEnv.port;
         netPath = outPutPath='.tmp/';
         pre = ['movelive'];
         break;
