@@ -19,35 +19,11 @@
     <script src="js/common.js"></script>
     <!-- endbuild -->
 
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?76babef92c3bcf99f974fd5aa85c2f0e";
-            var s = document.getElementsByTagName("script")[0];                                    s.parentNode.insertBefore(hm, s);
-        })();
-        var cssArr;
-        if (location.host=='fifa2018.vgs.lenovo.com.cn' ||location.host=='fifa2018-dev.vgs.lenovo.com.cn') {
-            cssArr = ["/css/($cssVersion).css"];
-        }else {
-            cssArr = ["/css/main.css","/css/schedule.css"];
-        }
-        //适配插件
-        G.adaptation({
-            size:1345, //适配宽度，以设计图为准,默认640
-            cssUrl:cssArr,//要适配的样式表，支持 ID CLASS 和远程
-            // metaview:"",//meta参数默认不加
-            response:true, //响应式  主要针对页面 .wap .pad .pc .wap-pad .pad-p 进行响应式操作 默认关闭，.wap <=640 .pad > 640 <= 960 .pc >960 , .wap-pad 和 pad.pc 属于过度样式 dd
-            lastpx:0.5,//最小PX
-            cbk:function(){  //适配成功后回调函数
-                // console.log("改变成功123");
-            }
-        });
-
-    </script>
-
 </head>
 <body>
+<div>
+    <ul></ul>
+</div>
 <div id="example"></div>
 <div id="example1"></div>
 <div id="about" class="nano">

@@ -25,17 +25,24 @@ var runType = argv.run || '', // dev、build
     netPath     = '',
     d           = new Date(),
     version     = d.getTime(),
-    veros       = os.platform();
+    veros       = os.platform()
+    pre = [];
 switch (runType) {
     case 'build':
         netPort = argv.port ||env.port || 8888;
         netPath = outPutPath;
     break;
+    case 'dev-live':
+        netPort = argv.port || env.port || 8888;
+        netPath = outPutPath='.tmp/';
+        pre = ['movelive'];
+        break;
     default: //--dev
         netPort = argv.port ||env.port || baseEnv.port;
         netPath = rootPath;
 }
 module.exports = function (gulp, $) {
+
 
     gulp.task('less', function() {
 
@@ -51,20 +58,30 @@ module.exports = function (gulp, $) {
 
 
     gulp.task('clean', function() {
-        if (runType !='build') {
+        if (runType =='dev') {
             return;
-        }
-        return gulp.src([
+        }else if(runType =='dev-live') {
+            return gulp.src([
                 outPutPath,
-                './.tmp',
+                '/.tmp/',
+                // '/dist/*'
+            ], {read: false})
+            // .pipe($.clean());
+                .pipe($.rimraf({ force: true }));
+        }else {
+            return gulp.src([
+                outPutPath,
+                // '/.tmp/',
                 '/dist/*'
             ], {read: false})
             // .pipe($.clean());
-            .pipe($.rimraf({ force: true }));
+                .pipe($.rimraf({ force: true }));
+        }
+
     });
 
 
-    gulp.task('connect', function() {
+    gulp.task('connect',pre, function() {
 
         var url = '';
 
@@ -115,7 +132,43 @@ module.exports = function (gulp, $) {
 
     });
 
+    gulp.task('watch-live', function() {
 
+        $.livereload.listen();
+        $.watch(rootPath+cssPath+'*.less', function() {
+            var out = rootPath+cssPath;
+            if (runType=='dev-live') {
+                out = outPutPath + cssPath;
+            }
+            gulp.src( rootPath+cssPath+'*.less')
+            // .pipe($.plumber())
+                .pipe(less())
+                // .pipe($.autoprefixer('last 3 version'))
+                .pipe($.size({
+                    title: 'css--------------------------------'
+                }))
+                .pipe(gulp.dest(out))
+                .pipe($.livereload());
+        });
+        $.watch(rootPath+'/**/*.js', function () {
+            return  gulp.src(rootPath+'/**/*.js')
+                .pipe(babel({
+                    presets: ['es2015']
+                }))
+                .pipe($.uglify())
+                .pipe(gulp.dest(outPutPath))
+                .pipe($.livereload());
+        });
+            // .pipe($.livereload());
+        $.watch([ rootPath+'/**/*.html', ], function () {})
+            .pipe($.livereload());
+
+    });
+    gulp.task('movelive',function () {
+        console.log(rootPath);
+        return gulp.src(rootPath+'/**/*')
+            .pipe(gulp.dest(outPutPath));
+    })
     
     //--html js 替换
     gulp.task('replacehtml', function() {

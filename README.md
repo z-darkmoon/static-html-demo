@@ -36,6 +36,7 @@
    
 2. 本地调试  
 默认端口`npm run dev`  
+默认端口`npm run dev-live` 调试兼容es6语法 
 指定端口`npm run  dev -- --port 9999`  
 可以在base.js里设置端口号
 3. 打包  
@@ -73,7 +74,7 @@
 
 1. html 静态页面中
 
-  ```html
+  ```htmlxxx
   <!-- build:css --> <!-- endbuild -->  
     
   <!-- build:js --><!-- endbuild -->

@@ -4,10 +4,11 @@ var dataType = 'json';
 var teamGroup = {
     'A':[],
 };
-
+var ss = `ssssttss`;
+console.log(ss);
 //主数据
 function getMainInfo() {
-
+    var ss = `sssssss`;
     jQuery.support.cors = true;
     $.ajax({url:'./data/data.json',type:'get',success:function (data) {
         // console.log(data)

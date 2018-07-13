@@ -20,14 +20,16 @@ module.exports = function (gulp, $) {
             runSequence (baseTask, revTask);
         }
     });
-
-
+    gulp.task('dev-live', ['clean','movelive','less', 'connect','watch-live']);
     gulp.task('run', ['clean'], function () {
 
         switch (runType) {
             case 'build':
                 gulp.start('build'); //--打包
             break;
+            case 'dev-live':
+                gulp.start('dev-live'); //--打包测试
+                break;
             case 'build-test':
                 gulp.start('build'); //--打包测试
                 break;
