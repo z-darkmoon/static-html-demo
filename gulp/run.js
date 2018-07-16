@@ -10,8 +10,8 @@ module.exports = function (gulp, $) {
     gulp.task('dev', ['less', 'connect', 'watch']);
 
     var baseTask = [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','movestatic','libJs','replacehtml'];
-    var replace = ['revHtmlImg1', 'revJsImg1', 'revCssImg1', 'revJsonImg1'];
-    var revTask = ['revHtmlImg', 'revJsImg', 'revCssImg', 'revJsonImg'];
+    var replace = ['revHtmlImg1', 'revJsImg1', 'revCssImg1', 'revJsonImg1','revHtmlJs1'];
+    var revTask = ['revHtmlImg', 'revJsImg', 'revCssImg', 'revJsonImg','revHtmlJs'];
 
     gulp.task('build', function () {
         if (env.replace.mode) {

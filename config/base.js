@@ -12,7 +12,7 @@ module.exports={
     // subPagePath:[],//子页面路径 默认所有目录下的html文件
     // staticFiles: ['json','swf','gif'],//静态资源 后缀名
     //todo  实时模式 待开发
-    // freeMode:false,//自由模式 默认false  打开后js css 将只被压缩 不进行合并
+    freeMode:true,//自由模式 默认false  打开后js css 将只被压缩 不进行合并
     replace:{//资源替换 将本地资源 替换成  线上资源 此模式  所有资源必须使用 绝对路径:/img/***.png
         mode:false,//默认false  不开启
         valueType:[

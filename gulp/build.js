@@ -14,14 +14,15 @@ var fs   = require('fs'),
 var env = require('../config/base.js');
 var baseEnv = require('./env');
 var runType = argv.run || '', // dev、build
-    rootPath=env.inPutPath || baseEnv.inPutPath,
-    outPutPath=env.outPutPath || baseEnv.outPutPath,
-    cssPath = env.cssPath ||baseEnv.cssPath,
-    imgPath = env.imgPath ||baseEnv.imgPath,
+    rootPath = env.inPutPath || baseEnv.inPutPath,
+    outPutPath = env.outPutPath || baseEnv.outPutPath,
+    cssPath = env.cssPath || baseEnv.cssPath,
+    imgPath = env.imgPath || baseEnv.imgPath,
     jsPath = env.jsPath || baseEnv.jsPath,
     libPath = env.libPath || baseEnv.libPath,
     staticFiles = env.staticFiles || baseEnv.staticFiles,
-    replace=env.replace,
+    replace = env.replace,
+    freeMode = env.freeMode || baseEnv.freeMode;
     netPath     = '',
     d           = new Date(),
     version     = d.getTime(),
@@ -187,15 +188,17 @@ module.exports = function (gulp, $) {
             minifyJS: true,//压缩页面JS
             minifyCSS: true//压缩页面CSS
         };
-        return gulp.src(rootPath+'/**/*.html')
-            .pipe($.htmlReplace({
+        var result = gulp.src(rootPath + '/**/*.html');
+        if (!freeMode) {
+            result.pipe($.htmlReplace({
                 'css': '/css/all_v' + version + '.css',
                 // 'css': 'videogular.css',
                 'js': jsFiles,
 
             }))
-            .pipe($.replace(/\(\$cssVersion\)/g, 'all_v' + version))
-            .pipe(htmlMin(options))
+                .pipe($.replace(/\(\$cssVersion\)/g, 'all_v' + version))
+        }
+        return result.pipe(htmlMin(options))
             .pipe(gulp.dest(outPutPath));
     });
     var jsLib = [];
@@ -215,14 +218,22 @@ module.exports = function (gulp, $) {
     });
     //压缩主js
     gulp.task('mainJs',function () {
-        return  gulp.src(rootPath+jsPath+'*.js')
-            .pipe($.concat('main-v'+version+'.js'))
-            .pipe(babel({
-                presets: ['es2015']
-            }))
+        var result = gulp.src(rootPath + jsPath + '*.js');
+        var out = outPutPath + jsPath;
+        if (!freeMode) {
+            result.pipe($.concat('main-v' + version + '.js'));
+            out = outPutPath ;
+        }
+
+        return result.pipe(babel({
+            presets: ['es2015']
+        }))
             .pipe(stripDebug())
             .pipe($.uglify())
-            .pipe(gulp.dest(outPutPath));
+            .pipe(rev())
+            .pipe(gulp.dest(out))
+            .pipe(rev.manifest())
+            .pipe(gulp.dest(out));
     });
     //压缩js库
     gulp.task('libJs',function () {
@@ -236,12 +247,14 @@ module.exports = function (gulp, $) {
     });
     //--css 迁移
     gulp.task('movecss',['less'], function() {
-        return gulp.src([
-                rootPath + '/**/*.css',
-                '!' + rootPath + '/static/**/*.css'
-            ])
-            .pipe($.concat('all_v' + version + '.css'))
-            .pipe($.minifyCss())
+        var result=gulp.src([
+            rootPath + '/**/*.css',
+            '!' + rootPath + '/static/**/*.css'
+        ])
+        if (!freeMode) {
+            result.pipe($.concat('all_v' + version + '.css'))
+        }
+        return result.pipe($.minifyCss())
             .pipe(gulp.dest(outPutPath + cssPath));
     });
     //--image 迁移
@@ -303,11 +316,20 @@ module.exports = function (gulp, $) {
             jsonDest:  outPutPath+imgPath+'*.json',
             entryPath: outPutPath+'/**/*.json',
             viewDest: outPutPath
+        },
+        {
+            taskName: 'revHtmlJs',
+            jsonDest:  outPutPath+jsPath+'*.json',
+            entryPath: outPutPath + '/**/*.html',
+            viewDest: outPutPath
         }
     ];
     revHtmlTaskGroup.forEach(function (task) {
         createRevHtmlTask(task.taskName, task.jsonDest, task.entryPath, task.viewDest)
     });
+    if (freeMode) {
+
+    }
     function createRevHtmlTask(taskName, jsonDest, entryPath, viewDest) {
         gulp.task(taskName+1,function () {
 
