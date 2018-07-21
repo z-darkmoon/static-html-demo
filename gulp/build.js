@@ -23,6 +23,7 @@ var runType = argv.run || '', // dev、build
     staticFiles = env.staticFiles || baseEnv.staticFiles,
     replace = env.replace,
     freeMode = env.freeMode || baseEnv.freeMode;
+    miniHtml = !env.miniHtml ? false : baseEnv.miniHtml;
     netPath     = '',
     d           = new Date(),
     version     = d.getTime(),
@@ -180,13 +181,13 @@ module.exports = function (gulp, $) {
 
         var options = {
             removeComments: true,//清除HTML注释
-            collapseWhitespace: true,//压缩HTML
+            collapseWhitespace: miniHtml,//压缩HTML
             // collapseBooleanAttributes: true,//省略布尔属性的值 <input checked="true"/> ==> <input />
             // removeEmptyAttributes: true,//删除所有空格作属性值 <input id="" /> ==> <input />
             // removeScriptTypeAttributes: false,//删除<script>的type="text/javascript"
             // removeStyleLinkTypeAttributes: false,//删除<style>和<link>的type="text/css"
-            minifyJS: true,//压缩页面JS
-            minifyCSS: true//压缩页面CSS
+            minifyJS: miniHtml,//压缩页面JS
+            minifyCSS: miniHtml//压缩页面CSS
         };
         var result = gulp.src(rootPath + '/**/*.html');
         if (!freeMode) {

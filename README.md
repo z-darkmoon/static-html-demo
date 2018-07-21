@@ -52,7 +52,8 @@
       jsPath:'/js/',//主js 默认app/js
       libPath:'/static/js',//静态库js 默认/static/js
       subPagePath:[],//子页面路径 默认所有目录下的html文件
-      staticFiles: ['json','swf','gif'],//静态资源 后缀名 
+      staticFiles: ['json','swf','gif'],//静态资源 后缀名
+      miniHtml:true, //是否对html 页面进行压缩 默认 true 
       replace:{//资源替换 将本地资源 替换成  线上资源 此模式  所有资源必须使用 绝对路径:/img/***.png
               mode:false,//默认false  不开启
               valueType:[
