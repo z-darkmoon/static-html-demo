@@ -190,16 +190,20 @@ module.exports = function (gulp, $) {
         };
         var result = gulp.src(rootPath + '/**/*.html');
         if (!freeMode) {
-            result.pipe($.htmlReplace({
+            return result.pipe($.htmlReplace({
                 'css': '/css/all_v' + version + '.css',
                 // 'css': 'videogular.css',
                 'js': jsFiles,
 
             }))
                 .pipe($.replace(/\(\$cssVersion\)/g, 'all_v' + version))
+                .pipe(htmlMin(options))
+                .pipe(gulp.dest(outPutPath));
+        }else {
+            return result.pipe(htmlMin(options))
+                .pipe(gulp.dest(outPutPath));
         }
-        return result.pipe(htmlMin(options))
-            .pipe(gulp.dest(outPutPath));
+
     });
     var jsLib = [];
     //获取静态js名称
@@ -221,19 +225,30 @@ module.exports = function (gulp, $) {
         var result = gulp.src(rootPath + jsPath + '*.js');
         var out = outPutPath + jsPath;
         if (!freeMode) {
-            result.pipe($.concat('main-v' + version + '.js'));
             out = outPutPath ;
+            return result.pipe($.concat('main-v' + version + '.js'))
+                .pipe(babel({
+                    presets: ['es2015']
+                }))
+                .pipe(stripDebug())
+                .pipe($.uglify())
+                // .pipe(rev())
+                .pipe(gulp.dest(out))
+                // .pipe(rev.manifest())
+                // .pipe(gulp.dest(out));
+        }else {
+            return result.pipe(babel({
+                presets: ['es2015']
+            }))
+                .pipe(stripDebug())
+                .pipe($.uglify())
+                .pipe(rev())
+                .pipe(gulp.dest(out))
+                .pipe(rev.manifest())
+                .pipe(gulp.dest(out));
         }
 
-        return result.pipe(babel({
-            presets: ['es2015']
-        }))
-            .pipe(stripDebug())
-            .pipe($.uglify())
-            .pipe(rev())
-            .pipe(gulp.dest(out))
-            .pipe(rev.manifest())
-            .pipe(gulp.dest(out));
+
     });
     //压缩js库
     gulp.task('libJs',function () {
@@ -250,12 +265,16 @@ module.exports = function (gulp, $) {
         var result=gulp.src([
             rootPath + '/**/*.css',
             '!' + rootPath + '/static/**/*.css'
-        ])
+        ]);
         if (!freeMode) {
-            result.pipe($.concat('all_v' + version + '.css'))
+            return result.pipe($.concat('all_v' + version + '.css'))
+                .pipe($.minifyCss())
+                .pipe(gulp.dest(outPutPath));
+        }else {
+            return result.pipe($.minifyCss())
+                .pipe(gulp.dest(outPutPath));
         }
-        return result.pipe($.minifyCss())
-            .pipe(gulp.dest(outPutPath));
+
     });
     //--image 迁移
     gulp.task('moveimages', function() {
