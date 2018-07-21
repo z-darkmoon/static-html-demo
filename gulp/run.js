@@ -11,13 +11,13 @@ module.exports = function (gulp, $) {
 
     var baseTask = [ 'movecss', 'moveimages', 'moveother','getJs','mainJs','movestatic','libJs','replacehtml'];
     var replace = ['revHtmlImg1', 'revJsImg1', 'revCssImg1', 'revJsonImg1','revHtmlJs1'];
-    var revTask = ['revHtmlImg', 'revJsImg', 'revCssImg', 'revJsonImg','revHtmlJs'];
+    var revTask = ['revHtmlImg', 'revJsImg', 'revCssImg', 'revJsonImg',];
 
     gulp.task('build', function () {
         if (env.replace.mode) {
-            runSequence (baseTask, replace, revTask);
+            runSequence (baseTask, replace, revTask,'revHtmlJs');
         }else {
-            runSequence (baseTask, revTask);
+            runSequence (baseTask, revTask,'revHtmlJs');
         }
     });
     gulp.task('dev-live', ['clean','movelive','less', 'connect','watch-live']);
