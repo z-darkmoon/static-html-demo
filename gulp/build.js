@@ -255,7 +255,7 @@ module.exports = function (gulp, $) {
             result.pipe($.concat('all_v' + version + '.css'))
         }
         return result.pipe($.minifyCss())
-            .pipe(gulp.dest(outPutPath + cssPath));
+            .pipe(gulp.dest(outPutPath));
     });
     //--image 迁移
     gulp.task('moveimages', function() {
