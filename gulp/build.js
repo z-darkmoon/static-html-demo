@@ -270,7 +270,7 @@ module.exports = function (gulp, $) {
         if (!freeMode) {
             return result.pipe($.concat('all_v' + version + '.css'))
                 .pipe($.minifyCss())
-                .pipe(gulp.dest(outPutPath));
+                .pipe(gulp.dest(outPutPath + cssPath));
         }else {
             return result.pipe($.minifyCss())
                 .pipe(gulp.dest(outPutPath));
