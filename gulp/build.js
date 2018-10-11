@@ -113,7 +113,7 @@ module.exports = function (gulp, $) {
         gulp.src('')
             .pipe($.shell(url));
     });
-    
+
 
     gulp.task('watch', function() {
 
@@ -171,7 +171,7 @@ module.exports = function (gulp, $) {
         return gulp.src(rootPath+'/**/*')
             .pipe(gulp.dest(outPutPath));
     })
-    
+
     //--html js 替换
     gulp.task('replacehtml', function() {
         var jsFiles = [
@@ -358,9 +358,10 @@ module.exports = function (gulp, $) {
             if(replace.mode&&taskName !='revHtmlJs') {
                 for (var i=0;i<replace.valueType.length;i++) {
                     reg=new RegExp(replace.valueType[i].key,'g');
-                    return result.pipe($.replace(reg,replace.valueType[i].value))
+                    result.pipe($.replace(reg,replace.valueType[i].value))
                         .pipe(gulp.dest(viewDest));
                 }
+                return result;
             }
         });
         gulp.task(taskName, function () {
