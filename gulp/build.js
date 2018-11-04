@@ -34,6 +34,10 @@ switch (runType) {
         netPort = argv.port ||env.port || baseEnv.port;
         netPath = outPutPath;
     break;
+    case 'pre':
+        netPort = argv.port ||env.port || baseEnv.port;
+        netPath = outPutPath;
+    break;
     case 'dev-live':
         netPort = argv.port || env.port || baseEnv.port;
         netPath = outPutPath='.tmp/';
