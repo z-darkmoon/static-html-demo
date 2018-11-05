@@ -52,7 +52,7 @@ module.exports = function (gulp, $) {
 
     gulp.task('less', function() {
 
-        return gulp.src(rootPath+cssPath+'*.less')
+        return gulp.src(rootPath+cssPath+'/*/*.less')
             // .pipe($.plumber())
             .pipe(less())
             // .pipe($.autoprefixer('last 3 version'))
@@ -64,7 +64,7 @@ module.exports = function (gulp, $) {
 
 
     gulp.task('clean', function() {
-        if (runType =='dev') {
+        if (runType =='dev'||runType =='pre') {
             return;
         }else if(runType =='dev-live') {
             return gulp.src([
@@ -227,7 +227,7 @@ module.exports = function (gulp, $) {
     });
     //压缩主js
     gulp.task('mainJs',function () {
-        var result = gulp.src(rootPath + jsPath + '*.js');
+        var result = gulp.src(rootPath + jsPath + '/*/*.js');
         var out = outPutPath + jsPath;
         if (!freeMode) {
             out = outPutPath ;
@@ -257,7 +257,7 @@ module.exports = function (gulp, $) {
     });
     //压缩js库
     gulp.task('libJs',function () {
-        return gulp.src(rootPath+libPath+'*.js')
+        return gulp.src(rootPath+libPath+'/*/*.js')
             // .pipe($.concat('lib-v'+version+'.js'))
             .pipe($.uglify())
             // .pipe(rev())
